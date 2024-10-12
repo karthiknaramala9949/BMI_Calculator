@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Result</title>
+    <style>
+        body {
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            margin: 100px auto;
+            width: 300px;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent box */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        a {
+            color: rgb(18, 124, 189);
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        a:hover{
+            color: green;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your BMI Result</h1>
+        <p>Your BMI is: {{ bmi }}</p>
+        <p>You are classified as: {{ classification }}</p>
+        
+        {% if classification == 'Underweight' %}
+            <img src="https://i.ibb.co/xCdSZ91/underweight.jpg" alt="Underweight Image">
+        {% elif classification == 'Normal weight' %}
+            <img src="https://i.ibb.co/c1ZY2rk/normalweight.jpg" alt="Normal Weight Image">
+        {% elif classification == 'Overweight' %}
+            <img src="https://i.ibb.co/cbhfRRN/overweight.png" alt="Overweight Image">
+        {% else %}
+            <img src="https://i.ibb.co/0tMQ3Zf/obsessed.jpg" alt="Obese Image">
+        {% endif %}
+        
+        <a href="/"><b>Back to Calculator</b></a>
+    </div>
+</body>
+</html>
